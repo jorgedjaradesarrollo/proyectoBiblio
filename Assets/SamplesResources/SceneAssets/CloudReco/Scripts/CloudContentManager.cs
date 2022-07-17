@@ -59,6 +59,25 @@ public class CloudContentManager : MonoBehaviour
     {
         Debug.Log("<color=blue>HandleTargetFinderResult(): " + targetSearchResult.TargetName + "</color>");
         
+		//////////TARGET LIBRO o TARGET ESTANTE////////////
+				
+        var nom_tipo_target = "";
+        string[] prefijo_target = targetSearchResult.TargetName.Split(new string[] {"_"}, System.StringSplitOptions.None);
+		nom_tipo_target = prefijo_target[0];
+		string tipo_escena=PlayerPrefs.GetString ("ESCENA_TARGET","");
+		//if(prefijo_target=="LIBRO" and  tipo_escena=="LIBRO"){
+		bool resultado = prefijo_target.Equals(tipo_escena);
+		if (resultado){
+			//aca haria lo del libro..
+			Debug.Log("aca haria lo del libro..");
+		//}else if(prefijo_target=="ESTANTE" and  tipo_escena=="ESTANTE"){
+		}else{
+			//aca haria lo de estante y no le daria bola 
+			Debug.Log("aca haria lo de estante y no le daria bola");
+		}
+		Debug.Log("<color=green>HandleTargetFinderResult(): " + tipo_escena + "</color>");
+		//////////////////////
+		
         ///////////VIDEO////////////
 		PlayerPrefs.SetString ("URL_YOUTUBE","");
         var url = "";
